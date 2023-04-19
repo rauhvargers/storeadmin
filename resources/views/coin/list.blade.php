@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>List of coins</h1>
+    <h2>{{$BigTitle}}</h2>
 
     <table>
         <tr>
@@ -22,7 +23,7 @@
                 <td>{{$coin["title"]}}</td>
                 <td>{{$coin["year"]}}</td>
                 <td>{{$coin["price"]}}</td>
-                <td>{{$coin["status"]}}</td>
+                <td>{{ $Statuses[ $coin["status"] ]  }}</td>
             </tr>
         @endforeach
 </body>

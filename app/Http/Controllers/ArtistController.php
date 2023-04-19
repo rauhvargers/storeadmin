@@ -11,6 +11,7 @@ class ArtistController extends Controller
      */
     public function index()
     {
+        return "This is a list of artists";
         //
     }
 
