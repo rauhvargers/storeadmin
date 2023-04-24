@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coin;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CoinController extends Controller
 {
+
+    public function showAllDb(): View {
+
+        $coins = Coin::all();
+
+        //uncomment the next line to see output of Eleoquent model read results
+        //dd($coins);
+
+        return view("coin.dblist", compact('coins'));
+    }
+
+
     //
     public function showAll(): View
     {
