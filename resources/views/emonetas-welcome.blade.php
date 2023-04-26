@@ -8,5 +8,10 @@
 </head>
 <body>
     <h1>eMonetas.lv admin panel</h1>
+
+    <h2>Coin management</h2>
+    <ul>
+        <li><a href="{{ route('coins.show') }}">List of all coins</a>
+    </ul>
 </body>
 </html>

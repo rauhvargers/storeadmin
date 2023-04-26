@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('emonetas-welcome');
-});
+})->name("home");
 
-Route::get('/coin/',   [ CoinController::class, 'showAll' ] );
+Route::get('/coin/',   [ CoinController::class, 'showAll' ] )->name('coins.show');
 
 Route::get('/coin/create', function () {
     return "TODO: return a form where user can enter information about a new coin";
