@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Coin;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CoinTableSeeder extends Seeder
 {
@@ -19,8 +20,23 @@ class CoinTableSeeder extends Seeder
         $commemorative_category = Category::where('title', 'Commemorative coins')->first();
         $rolls_category = Category::where('title', 'Coin rolls')->first();
 
+
+        //Solution #1: use `DB` abstraction to generate `insert into ..`
+        DB::table('coins')->insert([
+            'title' => 'Ukrainas brīvībai',
+            'production_year' => 2022,
+            'nominal_price' => 5.00,
+            'url' => 'ukrainas_brivibai',
+            'price' => 75.50,
+            'available_from' => '2022-12-05 12:00:00',
+            'stock' => 100,
+            'max_limit' => 1,
+            'category_id' => $commemorative_category->id
+        ]);
+
+        //Solution #2: create Eloquent model objects, persist them using save() method
         $coin = new Coin();
-        $coin->title= "Eduards Veidenbaums";
+        $coin->title = "Eduards Veidenbaums";
         $coin->production_year = 2017;
         $coin->nominal_price = 5.00;
         $coin->price = 75.00;
@@ -33,7 +49,7 @@ class CoinTableSeeder extends Seeder
 
 
         $coin = new Coin();
-        $coin->title= "Finanšu pratība";
+        $coin->title = "Finanšu pratība";
         $coin->production_year = 2022;
         $coin->nominal_price = 2.00;
         $coin->price = 50.00;
@@ -44,6 +60,18 @@ class CoinTableSeeder extends Seeder
         $coin->Category()->associate($rolls_category);
         $coin->save();
 
+        //Solution #3: mass assignment
 
+        $coin = Coin::create([
+            'title' => 'Augšup',
+            'production_year' => 2022,
+            'nominal_price' => 5.00,
+            'url' => 'augsup',
+            'price' => 78.50,
+            'available_from' => '2022-10-22 12:00:00',
+            'stock' => 200,
+            'max_limit' => 2,
+            'category_id' => $commemorative_category->id
+        ]);
     }
 }
