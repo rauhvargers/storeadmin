@@ -11,7 +11,9 @@
 
     <h2>Coin management</h2>
     <ul>
-        <li><a href="{{ route('coins.show') }}">List of all coins</a>
+        <li><a href="{{ route('coins.show') }}">List of all coins</a></li>
+        <li><a href="{{ route('coins.create') }}">Add new coin</a></li>
+
     </ul>
 </body>
 </html>

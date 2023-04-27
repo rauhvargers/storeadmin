@@ -12,4 +12,8 @@ class Coin extends Model
     public function Category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function Artist(){
+        return $this->belongsTo(Artist::class);
+    }
 }

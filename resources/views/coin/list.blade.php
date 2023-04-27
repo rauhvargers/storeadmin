@@ -26,10 +26,13 @@
             </tr>
         @endforeach
     </table>
-        <footer>
-            <hr />
-            <a href="{{ route('home') }}">Admin home</a>
-        </footer>
+
+    <a href="{{ route('coins.create')}}">New coin</a>
+
+    <footer>
+        <hr />
+        <a href="{{ route('home') }}">Admin home</a>
+    </footer>
 </body>
 
 </html>

@@ -22,9 +22,7 @@ Route::get('/', function () {
 
 Route::get('/coin/',   [ CoinController::class, 'showAll' ] )->name('coins.show');
 
-Route::get('/coin/create', function () {
-    return "TODO: return a form where user can enter information about a new coin";
-});
+Route::get('/coin/create', [CoinController::class, 'create'] )->name('coins.create');
 
 Route::get('/coin/{slug}', function (string $slug) {
     return "TODO: look up coin by its url slug (" . htmlspecialchars($slug) . ") and display its data";
