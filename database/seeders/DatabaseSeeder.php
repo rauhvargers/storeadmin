@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 
         //the DB seeder knows the appropriate sequence for launching other seeders
         $this->call(CategoryTableSeeder::class);
+        $this->call(ArtistSeeder::class);
         $this->call(CoinTableSeeder::class);
 
     }
