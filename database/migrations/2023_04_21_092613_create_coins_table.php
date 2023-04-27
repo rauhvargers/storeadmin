@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 255);
             $table->integer('production_year');
             $table->decimal('nominal_price');
-            $table->string('url', 255);
+            $table->string('url', 255)->unique();
             $table->decimal('price');
             $table->datetime('available_from');
             $table->integer('stock');

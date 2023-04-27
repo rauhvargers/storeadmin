@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Coin;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -73,5 +72,9 @@ class CoinTableSeeder extends Seeder
             'max_limit' => 2,
             'category_id' => $commemorative_category->id
         ]);
+
+
+        //Solution #4: factory
+        Coin::factory(5)->create();
     }
 }
