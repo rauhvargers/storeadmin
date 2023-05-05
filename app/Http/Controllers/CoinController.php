@@ -15,7 +15,7 @@ class CoinController extends Controller
     public function showAll(): View
     {
 
-        $coins = Coin::inCategory(1)->get();
+        $coins = Coin::inCategory(1)->year(2022)->get();
         // where (a=1 or 1=false) and (b=2 or c=5)
 
         //$coins = Coin::orderByDesc('production_year')->get();
