@@ -19,6 +19,7 @@ class CoinTableSeeder extends Seeder
         $commemorative_category = Category::where('title', 'Commemorative coins')->first();
         $rolls_category = Category::where('title', 'Coin rolls')->first();
 
+        //DB::query("select * from coins");
 
         //Solution #1: use `DB` abstraction to generate `insert into ..`
         DB::table('coins')->insert([
@@ -35,7 +36,7 @@ class CoinTableSeeder extends Seeder
 
         //Solution #2: create Eloquent model objects, persist them using save() method
         $coin = new Coin();
-        $coin->title = "Eduards Veidenbaums";
+    $coin->title = "Eduards Veidenbaums";
         $coin->production_year = 2017;
         $coin->nominal_price = 5.00;
         $coin->price = 75.00;
@@ -75,6 +76,6 @@ class CoinTableSeeder extends Seeder
 
 
         //Solution #4: factory
-        Coin::factory(5)->create();
+        Coin::factory(500)->create();
     }
 }
