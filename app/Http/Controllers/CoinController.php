@@ -88,4 +88,13 @@ class CoinController extends Controller
         return redirect()->route('coins.show');
     }
 
+    // Delete a coin identified by the slug, use soft delete
+    public function destroy(string $slug)
+    {
+        $coin = Coin::where('url', $slug)->firstOrFail();
+        $coin->delete();
+
+        return redirect()->route('coins.index')->with('success_message', 'Coin was deleted successfully!');
+    }
+
 }

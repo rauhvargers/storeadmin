@@ -24,6 +24,11 @@
     <p>{{ $coin->description }}</p>
 
     <a href="{{ route('coins.edit', ['slug' => $coin->url]) }}">Edit</a>
+    <form action="{{ route('coins.destroy', ['slug' => $coin->url]) }}" method="post">
+        @csrf
+        @method('delete')
+        <button type="submit">Delete</button>
+    </form>
     <footer>
         <hr />
         <a href="{{ route('home') }}">Admin home</a>
