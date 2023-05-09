@@ -21,8 +21,13 @@ return new class extends Migration
             $table->datetime('available_from');
             $table->integer('stock');
             $table->integer('max_limit');
+            $table->foreignId('artist_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->text('description');
+            $table->string('image', 255);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+
         });
     }
 

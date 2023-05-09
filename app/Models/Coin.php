@@ -16,11 +16,17 @@ class Coin extends Model
         return $this->belongsTo(Category::class);
     }
 
+
+
     public function Artist()
     {
         return $this->belongsTo(Artist::class);
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where("is_active", "=", true);
+    }
     /**
      * Filters coins by a given category
      */
