@@ -32,7 +32,8 @@ class CoinFactory extends Factory
             'available_from' => fake()->datetime(),
             'stock' =>  fake()->randomNumber(4),
             'max_limit' =>  fake()->randomNumber(1),
-            'category_id' => fake()->randomElement([1, 2])
+            'category_id' => fake()->randomElement([1, 2]),
+            'artist_id' => rand(1,15)
         ];
     }
 }

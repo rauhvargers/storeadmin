@@ -23,8 +23,8 @@ return new class extends Migration
             $table->integer('max_limit');
             $table->foreignId('artist_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
-            $table->text('description');
-            $table->string('image', 255);
+            $table->string('description',1000)->default('');
+            $table->string('image', 255)->default('');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
 

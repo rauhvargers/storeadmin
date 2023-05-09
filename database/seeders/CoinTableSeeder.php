@@ -31,12 +31,13 @@ class CoinTableSeeder extends Seeder
             'available_from' => '2022-12-05 12:00:00',
             'stock' => 100,
             'max_limit' => 1,
-            'category_id' => $commemorative_category->id
+            'category_id' => $commemorative_category->id,
+            'artist_id' => 7
         ]);
 
         //Solution #2: create Eloquent model objects, persist them using save() method
         $coin = new Coin();
-    $coin->title = "Eduards Veidenbaums";
+        $coin->title = "Eduards Veidenbaums";
         $coin->production_year = 2017;
         $coin->nominal_price = 5.00;
         $coin->price = 75.00;
@@ -45,6 +46,7 @@ class CoinTableSeeder extends Seeder
         $coin->available_from = '2023-01-01';
         $coin->url  = 'eduards_veidenbaums';
         $coin->Category()->associate($commemorative_category);
+        $coin->artist_id = 6;
         $coin->save();
 
 
@@ -58,6 +60,7 @@ class CoinTableSeeder extends Seeder
         $coin->available_from = '2022-10-01';
         $coin->url  = 'finansu_pratiba';
         $coin->Category()->associate($rolls_category);
+        $coin->artist_id = 12;
         $coin->save();
 
         //Solution #3: mass assignment
@@ -71,7 +74,8 @@ class CoinTableSeeder extends Seeder
             'available_from' => '2022-10-22 12:00:00',
             'stock' => 200,
             'max_limit' => 2,
-            'category_id' => $commemorative_category->id
+            'category_id' => $commemorative_category->id,
+            'artist_id' => 3
         ]);
 
 

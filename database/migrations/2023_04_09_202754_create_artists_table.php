@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
             $table->string('title', 100);
