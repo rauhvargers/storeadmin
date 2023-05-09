@@ -9,7 +9,7 @@ class Coin extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'url', 'production_year'];
+    protected $fillable = ['title', 'url', 'production_year', 'nominal_price', 'price', 'available_from', 'stock', 'max_limit', 'category_id', 'artist_id', 'is_active'];
 
     public function Category()
     {

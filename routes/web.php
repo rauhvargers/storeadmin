@@ -20,17 +20,12 @@ Route::get('/', function () {
     return view('emonetas-welcome');
 })->name("home");
 
-Route::get('/coin/',   [ CoinController::class, 'showAll' ] )->name('coins.show');
+Route::get('/coin/',   [ CoinController::class, 'showAll' ] )->name('coins.index');
 
 Route::get('/coin/create', [CoinController::class, 'create'] )->name('coins.create');
 Route::post('/coin/store', [CoinController::class, 'store'] )->name('coins.store');
-
-Route::get('/coin/{slug}', function (string $slug) {
-    return "TODO: look up coin by its url slug (" . htmlspecialchars($slug) . ") and display its data";
-});
-
-Route::get('/coin/{slug}/edit', function (string $slug) {
-    return "TODO: look up coin by its url slug (" . htmlspecialchars($slug) . ") and display an edit form of that coin";
-});
+Route::get('/coin/{slug}', [CoinController::class, 'show'] )->name('coins.show');
+Route::get('/coin/{slug}/edit', [CoinController::class, 'edit'] )->name('coins.edit');
+Route::put('/coin/{slug}/update', [CoinController::class, 'update'] )->name('coins.update');
 
 Route::resource('artist', ArtistController::class);
