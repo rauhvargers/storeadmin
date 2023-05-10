@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <x-stylesheets />
-</head>
-
-<body>
-    <x-page-head title='List of coins' />
-
-    <table>
+<x-layout title='List of coins' description='Pick a coin to work with'>
+        <table>
         <tr>
             <th>Product name</th>
             <th>Production year</th>
@@ -34,11 +21,4 @@
     </table>
 
     <a href="{{ route('coins.create')}}">New coin</a>
-
-    <footer>
-        <hr />
-        <a href="{{ route('home') }}">Admin home</a>
-    </footer>
-</body>
-
-</html>
+</x-layout>
