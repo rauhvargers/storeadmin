@@ -72,7 +72,7 @@ class CoinController extends Controller
     {
         $rules = [
             'title' => 'required|min:3|max:255',
-            'url' => 'required|min:3|max:255',
+            'url' => 'required|min:3|max:255|alpha_dash|unique:coins,url',
             'production_year' => 'required|integer|min:1900|max:2022',
             'nominal_price' => 'required|numeric|min:0.01|max:1000',
             'price' => 'required|numeric|min:0.01|max:1000',

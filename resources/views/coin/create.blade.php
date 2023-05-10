@@ -28,22 +28,22 @@
             <legend>Main</legend>
             <div>
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" />
+                <input type="text" name="title" id="title" value="{{old('title')}}" />
             </div>
             <div>
                 <label for="production_year">Production year</label>
                 <input id="production_year" name="production_year" type="number" min="1992" max="2023"
-                    step="1" />
+                    step="1" value="{{old('production_year')}}"/>
             </div>
 
             <div>
                 <label for="nominal_price">Nominal price</label>
-                <input id="nominal_price" name="nominal_price" type="number" />
+                <input id="nominal_price" name="nominal_price" type="number" value="{{old('nominal_price')}}" />
             </div>
 
             <div>
                 <label for="url">Url slug</label>
-                <input id="url" name="url" type="text" />
+                <input id="url" name="url" type="text" value="{{old('url')}}" />
             </div>
 
             <div>
@@ -51,20 +51,20 @@
                 <select name="category_id" id="category_id">
                     <option value="">Pick a category</option>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
                     @endforeach
                 </select>
             </div>
             <div>
                 <label for="description">Description</label>
-                <textarea id="description" name="description"></textarea>
+                <textarea id="description" name="description">{{old('description')}}</textarea>
             </div>
             <div>
                 <label for="artist_id">Artist</label>
                 <select name="artist_id" id="artist_id">
                     <option value="">Pick an artist</option>
                     @foreach ($artists as $artist)
-                        <option value="{{ $artist->id }}">{{ $artist->title }}</option>
+                        <option value="{{ $artist->id }}" {{ old('artist_id') == $artist->id ? 'selected' : '' }}>{{ $artist->title }}</option>
                     @endforeach
                 </select>
             </div>
@@ -76,20 +76,20 @@
 
             <div>
                 <label for="available_from">Available from</label>
-                <input id="available_from" name="available_from" type="datetime-local" />
+                <input id="available_from" name="available_from" type="datetime-local" value="{{old("available_from")}}" />
             </div>
             <div>
                 <label for="price">Price</label>
-                <input id="price" name="price" type="number" />
+                <input id="price" name="price" type="number" value="{{old('price')}}" />
             </div>
             <div>
                 <label for="stock">Stock</label>
-                <input id="stock" name="stock" type="number" min="0" />
+                <input id="stock" name="stock" type="number" min="0" value="{{old('stock')}}" />
             </div>
 
             <div>
                 <label for="max_limit">Purchase limit</label>
-                <input id="max_limit" name="max_limit" type="number" min="0" />
+                <input id="max_limit" name="max_limit" type="number" min="0" value="{{old('max_limit')}}" />
             </div>
         </fieldset>
 
