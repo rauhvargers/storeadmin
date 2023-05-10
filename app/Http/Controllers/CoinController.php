@@ -92,9 +92,10 @@ class CoinController extends Controller
     public function destroy(string $slug)
     {
         $coin = Coin::where('url', $slug)->firstOrFail();
+        $cointitle = $coin->title;
         $coin->delete();
 
-        return redirect()->route('coins.index')->with('success_message', 'Coin was deleted successfully!');
+        return redirect()->route('coins.index')->with('success_message', "Coin \"$cointitle\" was deleted successfully!");
     }
 
 }

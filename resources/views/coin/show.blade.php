@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Displaying the coin "{{ $coin->title }}"</title>
+    <x-stylesheets />
 </head>
 
 <body>
-    <h1>
-        <a href="{{ route('coins.index') }}">List of coins</a> &gt; "{{ $coin->title }}"</h1>
+    <x-page-head title='Displaying the coin "{{ $coin->title }}"' />
 
 
     <h2>Details</h2>

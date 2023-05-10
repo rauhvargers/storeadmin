@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <x-stylesheets />
 </head>
 
 <body>
+    <x-page-head title='List of coins' />
 
-    <h1>List of coins</h1>
     <table>
         <tr>
             <th>Product name</th>
