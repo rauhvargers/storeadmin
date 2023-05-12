@@ -23,6 +23,7 @@ class CoinDetail extends Component
      */
     public function render(): View|Closure|string
     {
+
         return view('components.coin-detail');
     }
 }
