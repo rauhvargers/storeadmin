@@ -43,7 +43,7 @@ class CoinController extends Controller
         $coin->update($validated);
 
 
-        return redirect()->route('coins.edit', ['slug' => $coin->url])->with('success_message', 'Coin was updated successfully!');
+        return redirect()->route('coins.show', ['slug' => $coin->url])->with('success_message', 'Coin was updated successfully!');
     }
 
 
