@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Editing the coin "{{ $coin->title }}"</title>
-    <x-stylesheets />
-</head>
-
-<body>
-    <x-page-head title='Editing the coin "{{ $coin->title }}"' />
-
+    <x-layout :title="$coin->title" description="Editing the coin">
 
     <form method="POST" action="{{ route('coins.update', ['slug' => $coin->url]) }}">
         @csrf
@@ -92,10 +79,4 @@
 
         <button type="submit">Save</button>
     </form>
-    <footer>
-        <hr />
-        <a href="{{ route('home') }}">Admin home</a>
-    </footer>
-</body>
-
-</html>
+    </x-layout>
