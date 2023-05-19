@@ -40,6 +40,7 @@ class CoinController extends Controller
             'url' => 'required|min:3|max:255',
         ];
         $validated = $request->validate($rules);
+
         $coin->update($validated);
 
 

@@ -8,7 +8,7 @@
             <legend>Main</legend>
             <div>
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" value="{{ $coin->title }}" />
+                <input type="text" name="title" id="title" value="{{ old('title', $coin->title) }}" />
             </div>
             <div>
                 <label for="production_year">Production year</label>
