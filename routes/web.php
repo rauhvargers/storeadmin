@@ -16,31 +16,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/', function () {
-    return view('emonetas-welcome');
-})->name("home")->middleware('auth');
+    route::get('/', function () {
+        return redirect('/dashboard');
+    })->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
+
+
+    Route::get('/coin/',   [CoinController::class, 'showAll'])->name('coins.index');
+
+    Route::get('/coin/create', [CoinController::class, 'create'])->name('coins.create');
+    Route::post('/coin/store', [CoinController::class, 'store'])->name('coins.store');
+    Route::get('/coin/{slug}', [CoinController::class, 'show'])->name('coins.show');
+    Route::get('/coin/{slug}/edit', [CoinController::class, 'edit'])->name('coins.edit');
+    Route::put('/coin/{slug}/update', [CoinController::class, 'update'])->name('coins.update');
+    Route::delete('/coin/{slug}/delete', [CoinController::class, 'destroy'])->name('coins.destroy');
+
+    Route::resource('artist', ArtistController::class);
 });
 
 
-Route::get('/coin/',   [ CoinController::class, 'showAll' ] )->name('coins.index');
-
-Route::get('/coin/create', [CoinController::class, 'create'] )->name('coins.create');
-Route::post('/coin/store', [CoinController::class, 'store'] )->name('coins.store');
-Route::get('/coin/{slug}', [CoinController::class, 'show'] )->name('coins.show');
-Route::get('/coin/{slug}/edit', [CoinController::class, 'edit'] )->name('coins.edit');
-Route::put('/coin/{slug}/update', [CoinController::class, 'update'] )->name('coins.update');
-Route::delete('/coin/{slug}/delete', [CoinController::class, 'destroy'] )->name('coins.destroy');
-
-Route::resource('artist', ArtistController::class);
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

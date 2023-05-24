@@ -1,38 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Displaying the coin ' . $coin->title ) }}
+        </h2>
+    </x-slot>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Displaying the coin "{{ $coin->title }}"</title>
-    <x-stylesheets />
-</head>
-
-<body>
-    <x-page-head title='Displaying the coin "{{ $coin->title }}"' />
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
 
-    <h2>Details</h2>
-    <h3>Production year</h3>
+
+                <div class="p-6 text-gray-900">
+
+
+    <h2 class="mb-4 font-bold">Details</h2>
+    <h3 class="pt-2 pb-1  text-bold">Production year</h3>
     <p>{{ $coin->production_year }}</p>
-    <h3>Nominal price</h3>
+    <h3 class="pt-2 pb-1  text-bold">Nominal price</h3>
     <p>{{ $coin->nominal_price }}</p>
-    <h3>Category</h3>
+    <h3 class="pt-2 pb-1  text-bold">Category</h3>
     <p>{{ $coin->category->title }}</p>
-    <h3>Description</h3>
+    <h3 class="pt-2 pb-1 text-bold">Description</h3>
     <p>{{ $coin->description }}</p>
 
     <a href="{{ route('coins.edit', ['slug' => $coin->url]) }}">Edit</a>
-    <form action="{{ route('coins.destroy', ['slug' => $coin->url]) }}" method="post">
-        @csrf
-        @method('delete')
-        <button type="submit">Delete</button>
-    </form>
-    <footer>
-        <hr />
-        <a href="{{ route('home') }}">Admin home</a>
-    </footer>
-</body>
-
-</html>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
