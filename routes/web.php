@@ -37,10 +37,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/coin/create', [CoinController::class, 'create'])->name('coins.create');
     Route::post('/coin/store', [CoinController::class, 'store'])->name('coins.store');
+    Route::get('/coin/testmail', [CoinController::class, 'testMail'])->name('coins.testmail');
+
     Route::get('/coin/{slug}', [CoinController::class, 'show'])->name('coins.show');
     Route::get('/coin/{slug}/edit', [CoinController::class, 'edit'])->name('coins.edit');
     Route::put('/coin/{slug}/update', [CoinController::class, 'update'])->name('coins.update');
     Route::delete('/coin/{slug}/delete', [CoinController::class, 'destroy'])->name('coins.destroy');
+
 
     Route::resource('artist', ArtistController::class);
 });

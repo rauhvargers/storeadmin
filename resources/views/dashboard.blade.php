@@ -13,7 +13,9 @@
 
                 <div class="p-6 text-gray-900">
                     <ul>
-                        <li><a href="{{ route('coins.index') }}">List of all coins</a></li>
+                        @can('is-admin')
+                            <li><a href="{{ route('coins.index') }}">List of all coins</a></li>
+                        @endcan
                         <li><a href="{{ route('coins.create') }}">Add new coin</a></li>
 
                     </ul>

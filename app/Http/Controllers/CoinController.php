@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CoinRegistered;
 use App\Models\Artist;
 use App\Models\Category;
 use App\Models\Coin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 
@@ -47,11 +50,17 @@ class CoinController extends Controller
         return redirect()->route('coins.show', ['slug' => $coin->url])->with('success_message', 'Coin was updated successfully!');
     }
 
-
-
+    public function testMail(){
+        Mail::to('kriss@naivist.net')->send(new CoinRegistered( Coin::first() ));
+        return 'Mail sent!';
+    }
 
     public function showAll(): View
     {
+
+        if (Gate::denies('is-admin')) {
+            abort(403);
+        }
         $coins = Coin::orderByDesc('production_year')->get();
 
         return view("coin.list", compact('coins'));
